@@ -1,3 +1,70 @@
 body {
     margin: 0;
+    font-family: "Smythe",serif;
 } 
+.hero-section{
+    color:white;
+    background-image: url('./images/two-burgers-french-fries-juice-260nw-2156063321.png');
+    background-size:cover;
+    width:100%;
+    padding:20px 40px;
+}
+
+.hero-title{
+    font-weight:500;
+    margin-bottom:0;
+}
+
+.hero-text{
+    margin-top:6px;
+}
+
+.item-container{
+    display: flex;
+    justify-content: space-between;
+    border-bottom:1px solid #DEDEDE;
+    max-width: 500px;
+    margin:auto;
+
+}
+.item-container-inner{
+    display:flex;
+    align-items: center;
+
+}
+
+.item{
+    font-size: 4.5rem;
+    margin-right: 20px;
+}
+
+.item-details > h2{
+    margin-bottom:0;
+    font-weight: 400;
+    font-size: 1.75rem;
+}
+.ingredients{
+    margin-top: 5px;
+    margin-bottom:0;
+    color:#8B8B8B;
+    font-size: 1rem;
+}
+.price{
+    font-size: 1.25rem;
+    margin-top: 15px;
+}
+
+.add-item{
+    border-radius: 50%;
+    border:1px solid #DEDEDE;
+    background-color: white;
+    color:#3C3C3C;
+    font-size: 2rem;
+    font-family: "Inter",sans-serif;
+    font-weight: 200;
+    align-self:center;
+    cursor:pointer;
+    width:50px;
+    height:50px;
+    padding-top:0;
+}
