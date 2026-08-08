@@ -12,10 +12,21 @@
         </header>
         <div class="container">
         <section id="menu"></section>
-        <section class="order-container">
+        <section id="order-container" class="order-container">
             <h3>Your Order</h3> 
-            <div id="orders"></div>
+            <div class= "orders" id="orders"></div>
+            <div id="purchase"></div>
         </section>
+        <form class="payment-details" id="payment-details">
+            <h4>Enter payment details:</h4>
+            <label for="full-name">Enter your full name</label>
+            <input type="text" id="full-name" placeholder="James Bond" required>
+            <label for="card-no">Enter card number</label>
+            <input type="tel" id="card-no" pattern="[0-9\s]" maxlength="19" placeholder="xxxx xxxx xxxx xxxx" required>
+            <label for="cvv">Enter CVV</label>
+            <input type="tel" id="cvv" pattern="[0-9]" maxlength=3 placeholder="xxx" required>
+            <button class="complete-order" type="submit">Pay</button>
+        </form>
         </div>
 	<script src="index.js" type="module"></script>
     </body>

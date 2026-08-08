@@ -1,14 +1,25 @@
 import menuArray from "./data.js";
 
 const orders = []
-document.addEventListener('click',function(e){
-    if(e.target.dataset.add){
+document.addEventListener('click', function(e){
+    if (e.target.dataset.add) {
         return addOrderItem(e.target.dataset.add)
     }
+    else if(e.target.dataset.remove){
+        return removeOrderItem(e.target.dataset.remove)
+    }
+    else if(e.target.id='complete-order'){
+        return renderModal()
+    }
 })
-function getMenuHtml(arr){
-    return arr.map(function(menuitem){
-        const {name,ingredients,id,price,emoji} = menuitem
+document.addEventListener('submit',function(e){
+    e.preventDefault()
+    document.getElementById('payment-details').style.display='none'
+    
+})
+function getMenuHtml(arr) {
+    return arr.map(function (menuitem) {
+        const { name, ingredients, id, price, emoji } = menuitem
         return `
         <div class="item-container">
                 <div class="item-container-inner">
@@ -26,26 +37,57 @@ function getMenuHtml(arr){
     })
 }
 
-function addOrderItem(item){
-    orders.push({name: menuArray[item].name,
-                price: menuArray[item].price})
+function addOrderItem(item) {
+    orders.push({
+        name: menuArray[item].name,
+        price: menuArray[item].price
+    })
     renderOrder()
 }
-function renderOrder(){
-    renderOrderedItems()
+function removeOrderItem(index) {
+    orders.splice(index,1)
+    renderOrder()
 }
-function renderOrderedItems(){
+function renderOrder() {
+    if (orders.length) {
+        document.getElementById('order-container').style.display = 'block'
+        renderOrderedItems()
+        renderPriceSection()
+    }
+    else {
+        document.getElementById('order-container').style.display = 'none'
+    }
+}
+function renderOrderedItems() {
     const ordereditems = document.getElementById('orders')
-    ordereditems.innerHTML=orders.map(function(order){
-            return `
+    ordereditems.innerHTML = orders.map(function (order) {
+        return `
             <div class="order">
             <div class="order-name">
             <h3>${order.name}</h3>
-            <button data-remove='${order.name}'>remove</button>
+            <button data-remove='${orders.indexOf(order)}'>remove</button>
             </div>
             <h3>$${order.price}</h3>
             </div>
             `
     }).join("")
 }
-document.getElementById('menu').innerHTML=getMenuHtml(menuArray)
+function renderPriceSection() {
+    const purchase = document.getElementById('purchase')
+    const totalprice = orders.reduce(function (total, currOrder) {
+        return total + currOrder.price
+    },0)
+    purchase.innerHTML =`
+            <div class="price">
+            <h3>Total Price:</h3>
+            <h3>$${totalprice}</h3>
+            </div>
+            <button class='complete-order' id="complete-order">
+            Complete Order
+            </button>
+            `
+}
+function renderModal(){
+    document.getElementById('payment-details').style.display='block'
+}
+document.getElementById('menu').innerHTML = getMenuHtml(menuArray)
