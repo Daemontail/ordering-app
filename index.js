@@ -8,15 +8,25 @@ document.addEventListener('click', function(e){
     else if(e.target.dataset.remove){
         return removeOrderItem(e.target.dataset.remove)
     }
-    else if(e.target.id='complete-order'){
+    else if(e.target.id==='complete-order'){
         return renderModal()
     }
 })
 document.addEventListener('submit',function(e){
     e.preventDefault()
-    document.getElementById('payment-details').style.display='none'
-    
+    const paymentDetails=document.getElementById('payment-details')
+    paymentDetails.style.display='none'
+    showConfirmationMessage(new FormData(paymentDetails).get('full-name'))
 })
+function showConfirmationMessage(name){
+    document.getElementById('order-container').innerHTML=`
+    <div class='confirmation'>
+    <h4>
+    Thanks,${name}!Your order is on it's way!
+    </h4>
+    </div>
+    `
+}
 function getMenuHtml(arr) {
     return arr.map(function (menuitem) {
         const { name, ingredients, id, price, emoji } = menuitem
