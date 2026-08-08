@@ -22,7 +22,7 @@ function showConfirmationMessage(name){
     document.getElementById('order-container').innerHTML=`
     <div class='confirmation'>
     <h4>
-    Thanks,${name}!Your order is on it's way!
+    Thanks,${name}! Your order is on it's way!
     </h4>
     </div>
     `

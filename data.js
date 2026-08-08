@@ -19,7 +19,14 @@ const menuArray = [
         price: 12,
         emoji: "🍺",
         id: 2
-    }
+    },
+        {
+        name: "Sushi",
+        ingredients: ["rice,nori,salmon"],
+        price: 30,
+        emoji: "🍣",
+        id:3
+        }
 ]
 
 export default menuArray
