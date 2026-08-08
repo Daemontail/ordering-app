@@ -18,14 +18,14 @@ body {
 .hero-text{
     margin-top:6px;
 }
-
+.container{
+    max-width: 500px;
+    margin:auto;
+}
 .item-container{
     display: flex;
     justify-content: space-between;
     border-bottom:1px solid #DEDEDE;
-    max-width: 500px;
-    margin:auto;
-
 }
 .item-container-inner{
     display:flex;
@@ -67,4 +67,41 @@ body {
     width:50px;
     height:50px;
     padding-top:0;
+}
+.order-container{
+    border-bottom: 2px solid black;
+    margin-bottom: 5px;
+}
+.order-container > h3{
+    text-align: center;
+    font-size: 1.75rem;
+    font-weight: 200;
+}
+.order{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    padding:2px 0;
+}
+.order > h3{
+    margin:0;
+}
+
+.order-name{
+    display:flex;
+}
+.order-name > h3{
+    margin-right:5px;
+    font-size: 1.75rem;
+    font-weight: 200;
+    margin:0 5px 0 0;
+}
+.order-name > button{
+    border:none;
+    background: white;
+    align-self: center;
+    color:#BBBBBB;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    cursor:pointer;
+    font-size: 0.75rem;
 }
